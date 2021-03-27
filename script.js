@@ -1,100 +1,155 @@
 // VARIABLES
 const main = document.getElementById('main');
-let books = document.querySelector('.books');
-let bookCardContainer = document.querySelector('.book-card-container')
-let bookTitle = document.getElementById('name');
-let bookAuthor = document.getElementById('author');
-let bookPages = document.getElementById('pages');
-let bookRead = document.getElementById('read-checkbox');
+// form
+let title = document.getElementById('name');
+let author = document.getElementById('author');
+let pages = document.getElementById('pages');
+let read = document.getElementById('read-checkbox');
 let submitBtn = document.getElementById('submit');
-let bookCards = document.getElementsByClassName('book-card');
 
+// book card
+let cardContainer = document.querySelector('.card-container')
+let cards = document.getElementsByClassName('card');
+
+// book stats
+let statsBooks = document.querySelector('.stats-books');
+let statsReadBooks = document.querySelector('.stats-books-read');
+let statsPages = document.querySelector('.stats-pages');
+let statsReadPages = document.querySelector('.stats-pages-read');
+
+//arrays
 let myLibrary = [];
+let newBook;
+
+// values 
 let index;
-let bookTitleV;
-let bookAuthorV;
-let bookPagesV;
-let bookReadV;
-let bookCardsArr;
 
 // FUNCTIONS
 
+function Book(title, author, pages, read) {
+    this.title = title.value; 
+    this.author = author.value; 
+    this.pages = pages.value; 
+    this.read = read.checked;
+}
+
+// add book 
+function addBookToLibrary() {
+    newBook = new Book(title, author, pages, read)
+    index = myLibrary.length;
+    myLibrary.push(newBook);
+    displayBook();
+    resetForm();
+}
+
 // display book card
-function displayBookCard() {
-    let bookTitleV = bookTitle.value;
-    let bookAuthorV = bookAuthor.value;
-    let bookPagesV = bookPages.value;
+function displayBook() {
+    function setAttribute() {
+        for (let y = 0; y < length; y++) {
+            cards[y].dataset.number = `${y}`;
+            cardDeleteBtn.dataset.number = `${y}`;
+        }
+    }
 
     for (let i = myLibrary.length; i <= myLibrary.length; i++) {
+        
         // creates Book Card
-        let bookCard = document.createElement('div');
-        bookCard.classList.add('book-card');
+        let card = document.createElement('div');
+        card.classList.add('card');
+        
         // creates title div
-        let bookCardTitle = document.createElement('div');
-        bookCardTitle.classList.add('book-title');
+        let cardTitle = document.createElement('div');
+        cardTitle.classList.add('title');
+        
         // creates author div
-        let bookCardAuthor = document.createElement('div');
-        bookCardAuthor.classList.add('book-author');
+        let cardAuthor = document.createElement('div');
+        cardAuthor.classList.add('author');
+
         // creates pages div
-        let bookCardPages = document.createElement('div');
-        bookCardPages.classList.add('book-pages');
+        let cardPages = document.createElement('div');
+        cardPages.classList.add('pages');
+
         // creates read/not read div
-        let bookCardRead = document.createElement('div');
-        bookCardRead.classList.add('book-read');
+        let cardRead = document.createElement('div');
+        cardRead.classList.add('read');
+
         // creates delete button div
-        let bookCardDelete = document.createElement('button');
-        bookCardDelete.classList.add('book-card-delete');
-        bookCardDelete.textContent = 'Delete';
+        let cardDeleteBtn = document.createElement('button');
+        cardDeleteBtn.classList.add('card-delete');
+        cardDeleteBtn.textContent = 'Delete';
+
         // appends divs to Book Card div
-        bookCard.appendChild(bookCardTitle);
-        bookCard.appendChild(bookCardAuthor);
-        bookCard.appendChild(bookCardPages);
-        bookCard.appendChild(bookCardRead);
-        bookCard.appendChild(bookCardDelete);
+        card.appendChild(cardTitle);
+        card.appendChild(cardAuthor);
+        card.appendChild(cardPages);
+        card.appendChild(cardRead);
+        card.appendChild(cardDeleteBtn);
         // appends Book Card to container
-        bookCardContainer.appendChild(bookCard);
+        cardContainer.appendChild(card);
+
         // adds content
-        bookCardTitle.textContent = bookTitleV;
-        bookCardAuthor.textContent = bookAuthorV;
-        bookCardPages.textContent = bookPagesV;
+        cardTitle.textContent = 'Title: ' + newBook.title;
+        cardAuthor.textContent = 'Author: ' + newBook.author;
+        cardPages.textContent = 'Pages: ' + newBook.pages;
+
         // adds read/not read
-        bookRead.checked ? bookCardRead.textContent = 'Read' : bookCardRead.textContent = 'Not Read'
-    }
+        newBook.read == true ? cardRead.textContent = 'Read' : cardRead.textContent = 'Not Read';
+
+        // delete event listener
+        cardDeleteBtn.addEventListener('click', (event) => {
+            event.target.parentNode.remove();
+            myLibrary.splice(event.target.dataset.number, 1);
+            let length = myLibrary.length;
+            displayStats();
+        })  
+    } 
+    displayStats();
 }
 
-// sets Data Attribute
-function setDataAttr() {
-    index = myLibrary.length - 1;
-    bookCardsArr = Array.from(bookCards);
-    deleteBtns1 = document.getElementsByClassName('book-card-delete');
-    deleteBtns = Array.from(deleteBtns1);
-    let indexArr = bookCardsArr.length - 1;
-    for (let i = indexArr; i < bookCardsArr.length; i++) {
-        bookCardsArr[i].dataset.number = `${index}`;
-        deleteBtns[i].dataset.number = `${index}`;
+// display the stats
+function displayStats() {
+    // displays total books
+    statsBooks.textContent = "Books: " + myLibrary.length;
+    // displays read books
+    let readBooks = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].read == true) {
+            readBooks++;
+        }
     }
-    // delete card button
-    deleteBtns.forEach(deleteBtn => deleteBtn.addEventListener('click', (event) => {
-        event.target.parentNode.remove()
-    }))
+    statsReadBooks.textContent = "ReadBooks: " + readBooks;
+    // displays total pages
+    let totalPages = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        totalPages = totalPages + Number(myLibrary[i].pages);
+    }
+    statsPages.textContent = "Pages: " + totalPages;
+    // display total read pages
+    let totalReadPages = 0;
+    for (let i = 0; i < myLibrary.length; i++) {
+        if (myLibrary[i].read == true && myLibrary[i].pages != 0) {
+        totalReadPages = totalReadPages + Number(myLibrary[i].pages)
+        }
+    }
+    statsReadPages.textContent = "Read Pages: " + totalReadPages;
 
+    
 }
 
-// add Book 
-function addBookToLibrary(title, author, pages, read) {
-    index = myLibrary.length;
-    myLibrary.push([]);
-    myLibrary[index].push(title);
-    myLibrary[index].push(author);
-    myLibrary[index].push(pages);
-    myLibrary[index].push(read);
+// reset form
+function resetForm() {
+    title.value = ""
+    author.value = "";
+    pages.value = "";
 }
 
 // EVENT LISTENERS
 // submit button
 submitBtn.addEventListener('click', () => {
-    console.log('submit');
-    addBookToLibrary(bookTitleV, bookAuthorV, bookPagesV, bookReadV);
-    displayBookCard();
-    setDataAttr();
+    addBookToLibrary();
+});
+
+ // no letters in pages input
+pages.addEventListener('keyup', () => {
+    pages.value = pages.value.replace(/[^\d]/,'');
 })
