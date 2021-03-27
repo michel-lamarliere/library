@@ -1,43 +1,183 @@
-.add-books {
-    display: flex;
-    width: 300px;
-    justify-content: center;
-    flex-direction: column;
+* {
+    margin: 0;
+    box-shadow: none;
+    font-family: Poppins, sans-serif;
 }
 
-.card {
-    margin-top: 50px;
-    width: 300px;
-    height: 120px;
-    background-color: grey;
-    border: solid 2px black;
-    border-radius: 10px;
-    font-size: 20px;
+#sidebar {
+    overflow-x: hidden;
+    position: fixed;
+    background-color: #BF1448;
+    height: 100%;
+    width: 640px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 5px;
-    margin-right: 20px;
-    
-    &-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 85px;
+    float: left;
+}
 
-    &-delete {
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
+h1 {
+    color: white;
+    font-size: 30px;
+    font-family: Poppins, sans-serif;
+}
+
+#mybooks {
+    margin-top: 80px;
+}
+
+#add-books {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 475px;
+    height: 331px;
+    background-color: white;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input {
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    color:#BF1448;
+    padding-left: 15px;
+    padding-top: 5px;
+    background-color: #F4E7EB;
+    margin-bottom: 15px;
+    border: none;
+
+    &:focus {
+        appearance: none;
+        outline: none;
     }
+}
+
+#stats-container {
+    @extend #add-books;
+    align-items: center;
+    justify-content: center;
+}
+
+#submit {
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    background-color: #BF1448;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+
+    &:active {
+        background-color: white;
+        border: solid 2px #BF1448;
+        color: #BF1448;
+    }
+}
+
+.form-read {
+    align-self: flex-start;
+    margin-left: 30px;
+    height: 30px;
+}
+
+#read-checkbox {
+    transform: scale(2);
+    margin-left: 5px;
+    background-color: black;
+}
+
+#read-or-not {
+    padding-left: 10px;
+    font-size: 15px;
+    color: #BF1448;
 }
 
 .stats {
-        width: 300px;
-        height: 200px;
-        margin-top: 20px;
-        border-radius: 10px;
-        border: solid 2px black;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    color:#BF1448;
+    padding-left: 15px;
+    padding-top: 5px;
+    background-color: #F4E7EB;
+    margin-bottom: 15px;
+    border: none;
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-right: 50px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px #BF1448;
+    margin-bottom: 20px;
 
+    &-container {
+        margin-left: 725px;
+        padding-left: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        padding-top: 80px;
+    }
+
+    &-delete {
+        @extend #submit;
+        width: 80px;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    &-toggle {
+        display: flex;
+        align-self: flex-start;
+        justify-content: center;
+        align-items: center;
+        margin-left: 30px;
+        background-color: #BF1448;
+        color: white;
+        width: 120px;
+        height: 35px;
+        border-radius: 25px;
+        border: none;
+        font-size: 15px;
+        cursor: pointer;
+    }
+}
+
+.title, .author, .pages, .read {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    font-size: 20px;
+    color:#BF1448;
+    padding-left: 15px;
+    padding-top: 5px;
+    background-color: #F4E7EB;
+    margin-bottom: 15px;
+    border: none;
+}
+
+.card-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
