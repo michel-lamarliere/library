@@ -9,12 +9,12 @@
     <div id="sidebar">
         <h1>Add Book</h1>
         <div id="add-books">
-            <input type="text" id="name" class="form-input" placeholder="Title">
+            <input type="text" id="title" class="form-input" placeholder="Title">
             <input type="text" id="author" class="form-input" placeholder="Author">
             <input type="text" id="pages" class="form-input" placeholder="Pages">
             <div class="form-read">
-                <input type="checkbox" id="read-checkbox"></input>
-                <label for="read-checkbox" id="read-or-not" checked>Read</label>
+                <input type="checkbox" class="form-checkbox" checked></input>
+                <label for="form-checkbox" class="form-checkbox-text">Read</label>
             </div>
             <button id="submit">+</button>
         </div>
@@ -26,31 +26,20 @@
             <div class="stats" id="stats-pages-read">Pages Read:</div>
         </div>
     </div>
-    <div class="card-container">
+     <div class="card-container">
+         <!--
+        <div class="toggle-btn toggle-off">
+            <div class="toggle-ball toggle-off-ball"></div>
+        </div>
+        <h3 class="read-or-n">Read</h3>
+        <div class="toggle-btn toggle-on">
+            <div class="toggle-ball toggle-on-ball"></div>
+        </div>    
+-->
 
     </div>
 
-        <!-- <h1>Add Book</h1>
-            <div class="add-books">
-                <label for="name">Name</label>
-                <input type="text" id="name">
-                <label for="author">Author</label>
-                <input type="text" id="author">
-                <label for="pages">Pages</label>
-                <input type="text" id="pages">
-                <label for="read-checkbox">Read</label>
-                <input type="checkbox" id="read-checkbox">
-                <button id="submit">Add Book</button>
-            </div>
-        
-        <div class="stats">
-            <div class="stats-books">Books: </div>
-            <div class="stats-books-read">Books read: </div>
-            <div class="stats-pages">Pages: </div>
-            <div class="stats-pages-read">Read Pages:</div>
-        </div>
-        -->
-
+    
     <script src="script.js"></script>
 </body>
 </html>

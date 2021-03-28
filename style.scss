@@ -1,13 +1,17 @@
+$colorOne: #BF1448;
+$colorTwo: white;
+$colorInput: #F4E7EB;
+$fontFamily: Poppins, sans-serif;
 * {
     margin: 0;
     box-shadow: none;
-    font-family: Poppins, sans-serif;
+    font-family: $fontFamily;
 }
 
 #sidebar {
     overflow-x: hidden;
     position: fixed;
-    background-color: #BF1448;
+    background-color: $colorOne;
     height: 100%;
     width: 640px;
     display: flex;
@@ -19,9 +23,8 @@
 }
 
 h1 {
-    color: white;
+    color: $colorTwo;
     font-size: 30px;
-    font-family: Poppins, sans-serif;
 }
 
 #mybooks {
@@ -34,26 +37,45 @@ h1 {
     flex-direction: column;
     width: 475px;
     height: 331px;
-    background-color: white;
+    background-color: $colorTwo;
     margin-top: 20px;
     justify-content: center;
     align-items: center;
 }
 
-.form-input {
-    width: 400px;
-    height: 40px;
-    font-size: 20px;
-    color:#BF1448;
-    padding-left: 15px;
-    padding-top: 5px;
-    background-color: #F4E7EB;
-    margin-bottom: 15px;
-    border: none;
+.form {
 
-    &:focus {
-        appearance: none;
-        outline: none;
+    &-input {
+        width: 400px;
+        height: 40px;
+        font-size: 20px;
+        color: $colorOne;
+        padding-left: 15px;
+        padding-top: 5px;
+        background-color: $colorInput;
+        margin-bottom: 15px;
+        border: none;
+
+        &:focus {
+            appearance: none;
+            outline: none;
+        }
+    }
+
+    &-read {
+        align-self: flex-start;
+        margin-left: 30px;
+        height: 30px;
+    }
+
+    &-checkbox {
+        transform: scale(2);
+        margin-left: 5px;
+
+        &-text {
+            color: #BF1448;
+            margin-left: 10px;
+        }
     }
 }
 
@@ -69,8 +91,8 @@ h1 {
     justify-content: center;
     align-items: center;
     margin-right: 30px;
-    background-color: #BF1448;
-    color: white;
+    background-color: $colorOne;
+    color: $colorTwo;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -79,28 +101,10 @@ h1 {
     cursor: pointer;
 
     &:active {
-        background-color: white;
-        border: solid 2px #BF1448;
-        color: #BF1448;
+        background-color: $colorTwo;
+        border: solid 2px $colorOne;
+        color: $colorOne;
     }
-}
-
-.form-read {
-    align-self: flex-start;
-    margin-left: 30px;
-    height: 30px;
-}
-
-#read-checkbox {
-    transform: scale(2);
-    margin-left: 5px;
-    background-color: black;
-}
-
-#read-or-not {
-    padding-left: 10px;
-    font-size: 15px;
-    color: #BF1448;
 }
 
 .stats {
@@ -109,10 +113,10 @@ h1 {
     width: 400px;
     height: 40px;
     font-size: 20px;
-    color:#BF1448;
+    color: $colorOne;
     padding-left: 15px;
     padding-top: 5px;
-    background-color: #F4E7EB;
+    background-color: $colorInput;
     margin-bottom: 15px;
     border: none;
 }
@@ -122,10 +126,10 @@ h1 {
     flex-direction: column;
     padding: 10px;
     margin-right: 50px;
-    background-color: white;
+    background-color: $colorTwo;
     justify-content: center;
     align-items: center;
-    border: solid 2px #BF1448;
+    border: solid 2px $colorOne;
     margin-bottom: 20px;
 
     &-container {
@@ -136,13 +140,23 @@ h1 {
         padding-top: 80px;
     }
 
+    &-fields {
+        display: flex;
+        flex-direction: column;
+    }
+
     &-delete {
-        @extend #submit;
-        width: 80px;
-        font-size: 25px;
+        background-color: $colorOne;
+        color: $colorTwo;
         width: 50px;
         height: 50px;
         border-radius: 50%;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     &-toggle {
@@ -151,14 +165,20 @@ h1 {
         justify-content: center;
         align-items: center;
         margin-left: 30px;
-        background-color: #BF1448;
-        color: white;
+        background-color: $colorOne;
+        color: $colorTwo;
         width: 120px;
         height: 35px;
         border-radius: 25px;
         border: none;
         font-size: 15px;
         cursor: pointer;
+    }
+
+    &-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
     }
 }
 
@@ -171,13 +191,63 @@ h1 {
     color:#BF1448;
     padding-left: 15px;
     padding-top: 5px;
-    background-color: #F4E7EB;
+    background-color: $colorInput;
     margin-bottom: 15px;
     border: none;
 }
 
-.card-buttons {
+.toggle-off {
+    position: relative;
+    width: 50px;
+    height: 20px;
+    background-color: $colorTwo;
+    border-radius: 15px;
+    border: solid 2px $colorOne;
+    cursor: pointer;
+
+    &-ball {
+        position: absolute;
+        top: 0.5px;
+        left: 1px;
+        padding: 2px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: $colorOne;
+        cursor: pointer;
+    }
+}
+
+.toggle-on {
+    @extend .toggle-off;
+    background-color: $colorOne;
+
+    &-ball {
+        @extend .toggle-off-ball;
+        background-color: $colorTwo;
+        left: auto;
+        right: 1px;
+    }
+}
+
+.read-or-not {
+    color: $colorOne;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.toggle-div {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: center;
+}
+
+.delete-div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: center;
 }
