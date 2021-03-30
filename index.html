@@ -6,37 +6,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="sidebar">
-        <h1>Add Book</h1>
-        <div id="add-books">
-            <input type="text" id="title" class="form-input" placeholder="Title">
-            <input type="text" id="author" class="form-input" placeholder="Author">
-            <input type="text" id="pages" class="form-input" placeholder="Pages">
-            <div class="form-read">
-                <input type="checkbox" class="form-checkbox" checked></input>
-                <label for="form-checkbox" class="form-checkbox-text">Read</label>
+    <div class="main">
+        <div id="sidebar">
+            <h1>Add Book</h1>
+            <div id="add-books">
+                <input type="text" id="title" class="form-input" placeholder="Title">
+                <input type="text" id="author" class="form-input" placeholder="Author">
+                <input type="text" id="pages" class="form-input" placeholder="Pages">
+                <div class="form-read">
+                    <input type="checkbox" class="form-checkbox" checked></input>
+                    <label for="form-checkbox" class="form-checkbox-text">Read</label>
+                </div>
+                <button id="submit">+</button>
             </div>
-            <button id="submit">+</button>
+            <h1 id="mybooks">My Books</h1>
+            <div id="stats-container">
+                <div class="stats" id="stats-books">Books: 0</div>
+                <div class="stats" id="stats-books-read">Books Read: 0</div>
+                <div class="stats" id="stats-pages">Pages: 0</div>
+                <div class="stats" id="stats-pages-read">Pages Read: 0</div>
+            </div>
         </div>
-        <h1 id="mybooks">My Books</h1>
-        <div id="stats-container">
-            <div class="stats" id="stats-books">Books: </div>
-            <div class="stats" id="stats-books-read">Books Read:</div>
-            <div class="stats" id="stats-pages">Pages:</div>
-            <div class="stats" id="stats-pages-read">Pages Read:</div>
-        </div>
-    </div>
-     <div class="card-container">
-         <!--
-        <div class="toggle-btn toggle-off">
-            <div class="toggle-ball toggle-off-ball"></div>
-        </div>
-        <h3 class="read-or-n">Read</h3>
-        <div class="toggle-btn toggle-on">
-            <div class="toggle-ball toggle-on-ball"></div>
-        </div>    
--->
+        <div class="card-container">
 
+        </div>
     </div>
 
     

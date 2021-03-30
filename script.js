@@ -195,7 +195,7 @@ function displayStats() {
             readBooks++;
         }
     }
-    statsReadBooks.textContent = "Read Books: " + readBooks;
+    statsReadBooks.textContent = "Books Read: " + readBooks;
     // displays total pages
     let totalPages = 0;
     for (let i = 0; i < myLibrary.length; i++) {
@@ -209,7 +209,7 @@ function displayStats() {
         totalReadPages = totalReadPages + Number(myLibrary[i].pages)
         }
     }
-    statsReadPages.textContent = "Read Pages: " + totalReadPages;
+    statsReadPages.textContent = "Pages Read: " + totalReadPages;
 }
 
 // reset form
