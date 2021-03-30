@@ -258,7 +258,7 @@
   align-self: center;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 950px) {
   .main {
     display: flex;
     flex-direction: column;
@@ -320,7 +320,7 @@
     margin-top: 20px;
   }
 }
-@media screen and (min-width: 980px) and (max-width: 1259px) {
+@media screen and (min-width: 950px) and (max-width: 1259px) {
   .main {
     display: flex;
     flex-direction: column;
@@ -380,11 +380,11 @@
   }
 
   .toggle-div {
-    margin-left: 30px;
+    margin-left: 10px;
   }
 
   .delete-div {
-    margin-right: 30px;
+    margin-right: 10px;
   }
 
   #michel {
