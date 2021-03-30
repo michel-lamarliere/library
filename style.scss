@@ -162,6 +162,7 @@ $fontFamily: Poppins, sans-serif;
     align-items: center;
     border: solid 2px $colorOne;
     margin-bottom: 20px;
+    padding-top: 30px;
 
     &-container {
         display: flex;
@@ -264,6 +265,7 @@ $fontFamily: Poppins, sans-serif;
 .read-or-not {
     color: $colorOne;
     font-size: 20px;
+    padding-left: 10px;
 }
 
 .toggle-div {
@@ -330,6 +332,7 @@ $fontFamily: Poppins, sans-serif;
         width: 450px;
         margin-right: 0px;
         margin-left: 0px;
+        padding-top: 30px;
     }
 
     .toggle-div {
@@ -403,6 +406,7 @@ $fontFamily: Poppins, sans-serif;
         width: 420px;
         margin-right: 0px;
         margin-left: 0px;
+        padding-top: 30px;
     }
 
     .toggle-div {

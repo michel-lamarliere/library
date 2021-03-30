@@ -147,6 +147,7 @@
   align-items: center;
   border: solid 2px #BF1448;
   margin-bottom: 20px;
+  padding-top: 30px;
 }
 .card-container {
   display: flex;
@@ -240,6 +241,7 @@
 .read-or-not {
   color: #BF1448;
   font-size: 20px;
+  padding-left: 10px;
 }
 
 .toggle-div {
@@ -306,6 +308,7 @@
     width: 450px;
     margin-right: 0px;
     margin-left: 0px;
+    padding-top: 30px;
   }
 
   .toggle-div {
@@ -377,6 +380,7 @@
     width: 420px;
     margin-right: 0px;
     margin-left: 0px;
+    padding-top: 30px;
   }
 
   .toggle-div {
