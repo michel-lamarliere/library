@@ -253,38 +253,7 @@ h1 {
     align-self: center;
 }
 
-@media screen and (max-width: 500px) {
-    .main {
-        display: flex;
-        flex-direction: column;
-    }
-
-    #sidebar {
-        width: 500px;
-        min-width: 500px;
-        float: none;
-        padding-left: 10px;
-        padding-right: 10px;
-        position: relative;
-        height: auto;
-    }
-
-    .card-container {
-        float: none;
-        flex-direction: column;
-        margin-left: 0px; 
-        padding-left: 0px;
-
-    }
-
-    .card {
-        margin-left: 10px;
-        padding-left: 0px;
-        width: 475px;
-    }
-}
-
-@media screen and (max-width: 1259px) {
+@media screen and (max-width: 960px) {
     .main {
         display: flex;
         flex-direction: column;
@@ -292,7 +261,6 @@ h1 {
 
     #sidebar {
         width: 100%;
-        min-width: 500px;
         margin-left: auto;
         margin-right: auto;
         float: none;
@@ -302,6 +270,7 @@ h1 {
         padding-bottom: 30px;
         position: relative;
         height: auto;
+        display: flex;
     }
 
     h1 {
@@ -339,4 +308,71 @@ h1 {
         margin-right: 30px;
     }
     
+}
+
+@media screen and (min-width: 960px) and (max-width: 1259px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mybooks {
+        margin-top: 0px;
+    }
+
+    #sidebar {
+        width: 100%;
+        min-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        position: relative;
+        height: auto;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    #add-books {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .card-container {
+        float: none;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: auto;
+        margin-right: auto; 
+        padding-left: 0px;
+        margin-top: 10px;
+        padding-top: 20px;
+        padding-left: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-a;
+
+    }
+
+    .card {
+        width: 450px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .toggle-div {
+        margin-left: 30px;
+    }
+
+    .delete-div {
+        margin-right: 30px;
+    }
 }
