@@ -258,7 +258,7 @@
   align-self: center;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
   .main {
     display: flex;
     flex-direction: column;
@@ -320,7 +320,7 @@
     margin-top: 20px;
   }
 }
-@media screen and (min-width: 950px) and (max-width: 1259px) {
+@media screen and (min-width: 1000px) and (max-width: 1259px) {
   .main {
     display: flex;
     flex-direction: column;
