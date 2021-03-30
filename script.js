@@ -10,7 +10,6 @@ let submitBtn = document.getElementById('submit');
 
 // book card
 let cardContainer = document.querySelector('.card-container')
-let cards = document.getElementsByClassName('card');
 let cardDeleteBtns = document.getElementsByClassName('card-delete');
 let cardToggles = document.getElementsByClassName('toggle-btn');
 let cardToggleBalls = document.getElementsByClassName('toggle-ball');
@@ -43,26 +42,33 @@ function Book(title, author, pages, read) {
 // add book 
 function addBookToLibrary() {
     if (add === true) {
-        newBook = new Book(title, author, pages, read)
+        console.log('adding to library')
+        newBook = new Book(title, author, pages, read);
         index = myLibrary.length;
         myLibrary.push(newBook);
         displayBook();
-        resetForm();
     } else return false;
+}
+
+function setAttribute() {
+    console.log('setting attributes')
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < myLibrary.length; i++) {
+        cards[i].dataset.number = `${i}`;
+        cardDeleteBtns[i].dataset.number = `${i}`;
+        cardToggles[i].dataset.number = `${i}`;
+        cardToggleBalls[i].dataset.number = `${i}`;
+    }
 }
 
 // display book card
 function displayBook() {
-    function setAttribute() {
-        for (let i = 0; i < myLibrary.length; i++) {
-            cards[i].dataset.number = `${i}`;
-            cardDeleteBtns[i].dataset.number = `${i}`;
-            cardToggles[i].dataset.number = `${i}`;
-            cardToggleBalls[i].dataset.number = `${i}`;
-        }
+    
+    while (cardContainer.firstChild) {
+        cardContainer.firstChild.remove()
     }
-    for (let i = myLibrary.length; i <= myLibrary.length; i++) {
-        
+    console.log('displaying books')
+    for (let i = 0; i < myLibrary.length; i++) {
         // creates Book Card
         let card = document.createElement('div');
         card.classList.add('card');
@@ -98,7 +104,7 @@ function displayBook() {
         // creates read or not display 
         let cardRead = document.createElement('div');
         cardRead.classList.add('read-or-not');
-        if (newBook.read === true) {
+        if (myLibrary[i].read === true) {
             cardRead.textContent = 'Read';
         } else {
             cardRead.textContent = 'Not Read';
@@ -106,7 +112,7 @@ function displayBook() {
         // creates read/not read button 
         let cardToggle = document.createElement('div');
         cardToggle.classList.add('toggle-btn');
-        if (newBook.read == true) {
+        if (myLibrary[i].read === true) {
             cardRead.textContent = 'Read';
             cardToggle.classList.add('toggle-on');
         } else {
@@ -117,7 +123,7 @@ function displayBook() {
         // creates ball
         let cardToggleBall = document.createElement('div');
         cardToggleBall.classList.add('toggle-ball');
-        if (newBook.read === true) {
+        if (myLibrary[i].read === true) {
             cardToggleBall.classList.add('toggle-on-ball');
         } else {
             cardToggleBall.classList.add('toggle-off-ball');
@@ -131,7 +137,7 @@ function displayBook() {
         cardDeleteBtn.textContent = '-';
 
         // appends divs to Book Card div
-        card.appendChild(fieldsDiv)
+        card.appendChild(fieldsDiv);
         fieldsDiv.appendChild(cardTitle);
         fieldsDiv.appendChild(cardAuthor);
         fieldsDiv.appendChild(cardPages);
@@ -143,11 +149,10 @@ function displayBook() {
         cardButtons.appendChild(deleteDiv);
         // appends Book Card to container
         cardContainer.appendChild(card);
-        setAttribute();
         // adds content
-        cardTitle.textContent = 'Title: ' + newBook.title;
-        cardAuthor.textContent = 'Author: ' + newBook.author;
-        cardPages.textContent = 'Pages: ' + newBook.pages;
+        cardTitle.textContent = 'Title: ' + myLibrary[i].title;
+        cardAuthor.textContent = 'Author: ' + myLibrary[i].author;
+        cardPages.textContent = 'Pages: ' + myLibrary[i].pages;
 
         // toggle event listener
         cardToggle.addEventListener('click', (event) => {
@@ -169,6 +174,7 @@ function displayBook() {
             }
             displayStats();
             setAttribute();
+            saveLocal();
         })
 
         // delete event listener
@@ -177,11 +183,13 @@ function displayBook() {
             myLibrary.splice(event.target.dataset.number, 1);
             displayStats();
             setAttribute();
+            saveLocal();
+
         })  
-    } 
-    setAttribute();
+    }
     displayStats();
-    
+    setAttribute();
+    saveLocal();
 }
 
 // display the stats
@@ -247,6 +255,8 @@ function emptyInputs() {
 submitBtn.addEventListener('click', () => {
     emptyInputs();
     addBookToLibrary();
+    resetForm();
+    displayBook();
 });
 
  // no letters in pages input
@@ -259,3 +269,28 @@ document.addEventListener('keydown', (event) => {
         submitBtn.click();
     }
 })
+
+// LOCAL STORAGE
+function saveLocal() {
+    localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+    console.log('saving to local fn');
+}
+
+function getLocal() {
+    let storage = JSON.parse(localStorage.getItem("myLibrary"));
+    console.log('get local fn');
+
+    if (storage) {
+        myLibrary.push(...storage);
+        console.log('mylib push fn');
+    }
+}
+
+function displayLocal() {
+    console.log('display local fn()')
+    getLocal();
+    displayBook();
+}
+
+displayLocal();
+
