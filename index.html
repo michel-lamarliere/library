@@ -8,27 +8,34 @@
 <body>
     <div class="main">
         <div id="sidebar">
-            <div id="add-books-div">
-            <h1>Add Book</h1>
-            <div id="add-books">
-                <input type="text" id="title" class="form-input" placeholder="Title">
-                <input type="text" id="author" class="form-input" placeholder="Author">
-                <input type="text" id="pages" class="form-input" placeholder="Pages">
-                <div class="form-read">
-                    <input type="checkbox" class="form-checkbox" checked></input>
-                    <label for="form-checkbox" class="form-checkbox-text">Read</label>
+            <div id="add-books-container">
+                <div class="titles">Add Book</div>
+                <div class="form-container">
+                    <input type="text" id="title" class="form-input" placeholder="Title">
+                    <input type="text" id="author" class="form-input" placeholder="Author">
+                    <input type="text" id="pages" class="form-input" placeholder="Pages">
+                    <div id="checkbox-add-container">
+                        <div class="checkbox-container">
+                            <input type="checkbox" class="form-checkbox" checked></input>
+                            <label for="form-checkbox" class="form-checkbox-text">Read</label>
+                        </div>
+                        <div id="submit-div">
+                            <button id="submit">+</button>
+                        </div>
+                        </div>
                 </div>
-                <button id="submit">+</button>
             </div>
-        </div>
         <div id="stats-div">
-            <h1 id="mybooks">My Books</h1>
+            <div class=titles>My Books</div>
             <div id="stats-container">
                 <div class="stats" id="stats-books">Books: 0</div>
                 <div class="stats" id="stats-books-read">Books Read: 0</div>
                 <div class="stats" id="stats-pages">Pages: 0</div>
                 <div class="stats" id="stats-pages-read">Pages Read: 0</div>
             </div>
+        </div>
+        <div id="michel">
+            <a href="">Michel Lamarlière</a>
         </div>
         </div>
         <div class="card-container">

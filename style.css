@@ -4,22 +4,24 @@
   font-family: Poppins, sans-serif;
 }
 
-h1 {
+.titles {
   color: white;
   font-size: 30px;
+  padding-top: 30px;
 }
 
 #sidebar {
   overflow-x: hidden;
   position: fixed;
-  background-color: #BF1448;
-  height: 100%;
-  width: 600px;
   display: flex;
   flex-direction: column;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  padding-left: 85px;
+  background-color: #BF1448;
+  height: 100%;
+  width: 480px;
+  padding-top: 0px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
   float: left;
 }
 
@@ -27,18 +29,18 @@ h1 {
   margin-top: 30px;
 }
 
-#add-books, #stats-container {
+.form-container, #stats-container {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 475px;
+  width: 480px;
   height: 300px;
   background-color: white;
   margin-top: 20px;
+  padding-top: 20px;
   justify-content: center;
   align-items: center;
 }
-
 .form-input {
   width: 400px;
   height: 40px;
@@ -54,11 +56,6 @@ h1 {
   appearance: none;
   outline: none;
 }
-.form-read {
-  align-self: flex-start;
-  margin-left: 30px;
-  height: 30px;
-}
 .form-checkbox {
   transform: scale(2);
   margin-left: 5px;
@@ -68,23 +65,29 @@ h1 {
   margin-left: 10px;
 }
 
-#stats-container {
+.checkbox-container {
+  padding-left: 30px;
+}
+
+#checkbox-add-container {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
 }
 
 #submit {
   display: flex;
-  align-self: flex-end;
   justify-content: center;
   align-items: center;
-  margin-right: 30px;
-  background-color: #BF1448;
-  color: white;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  background-color: #BF1448;
+  color: white;
   border: none;
+  border-radius: 50%;
   font-size: 25px;
   cursor: pointer;
 }
@@ -92,6 +95,32 @@ h1 {
   background-color: white;
   border: solid 2px #BF1448;
   color: #BF1448;
+}
+
+#submit-div {
+  padding-right: 30px;
+}
+
+#stats-container {
+  align-items: center;
+  justify-content: center;
+}
+
+#michel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 30px;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 10px;
+}
+#michel > a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .stats {
@@ -112,7 +141,7 @@ h1 {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  margin-right: 50px;
+  margin: 5px;
   background-color: white;
   justify-content: center;
   align-items: center;
@@ -120,11 +149,11 @@ h1 {
   margin-bottom: 20px;
 }
 .card-container {
-  margin-left: 725px;
-  padding-left: 50px;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  padding-top: 80px;
+  margin-left: 550px;
+  padding-top: 75px;
 }
 .card-fields {
   display: flex;
@@ -164,7 +193,7 @@ h1 {
   flex-direction: row;
 }
 
-.title, .author, .pages, .read {
+.title, .author, .pages {
   display: flex;
   align-items: center;
   width: 400px;
@@ -211,7 +240,6 @@ h1 {
 .read-or-not {
   color: #BF1448;
   font-size: 20px;
-  margin-left: 10px;
 }
 
 .toggle-div {
@@ -230,7 +258,7 @@ h1 {
   align-self: center;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 980px) {
   .main {
     display: flex;
     flex-direction: column;
@@ -243,20 +271,24 @@ h1 {
     float: none;
     padding-left: 0px;
     padding-right: 0px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 0px;
+    padding-bottom: 20px;
     position: relative;
     height: auto;
     display: flex;
   }
 
-  h1 {
+  .titles {
     text-align: center;
   }
 
-  #add-books, #stats-container {
+  .form-container, #stats-container {
     margin-right: auto;
     margin-left: auto;
+  }
+
+  #mybooks {
+    margin-top: 20px;
   }
 
   .card-container {
@@ -283,8 +315,12 @@ h1 {
   .delete-div {
     margin-right: 30px;
   }
+
+  #michel {
+    margin-top: 20px;
+  }
 }
-@media screen and (min-width: 960px) and (max-width: 1259px) {
+@media screen and (min-width: 980px) and (max-width: 1259px) {
   .main {
     display: flex;
     flex-direction: column;
@@ -311,32 +347,34 @@ h1 {
     justify-content: space-around;
   }
 
-  h1 {
+  .titles {
     text-align: center;
   }
 
-  #add-books, #stats-container {
+  .form-container, #stats-container {
     margin-right: auto;
     margin-left: auto;
   }
 
   .card-container {
-    float: none;
-    flex-direction: row;
-    flex-wrap: wrap;
+    width: 100%;
+    min-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    float: none;
     padding-left: 0px;
-    margin-top: 10px;
-    padding-top: 20px;
-    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+    height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-a;
+    justify-content: space-evenly;
   }
 
   .card {
-    width: 450px;
+    width: 420px;
     margin-right: 0px;
     margin-left: 0px;
   }
@@ -347,5 +385,14 @@ h1 {
 
   .delete-div {
     margin-right: 30px;
+  }
+
+  #michel {
+    display: none;
+    align-self: flex-end;
+  }
+
+  #michel-footer {
+    display: flex;
   }
 }
