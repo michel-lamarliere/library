@@ -307,7 +307,7 @@ $fontFamily: Poppins, sans-serif;
     display: none;
     justify-content: center;
     align-self: flex-start;
-    margin-left: 32px;
+    margin-left: 20px;
     margin-bottom: 20px;
     align-items: center;
     width: 30px;
@@ -362,6 +362,7 @@ $fontFamily: Poppins, sans-serif;
 
     .form-container {
         display: none;
+        width: 700px;
         top: 0;
         bottom: 0;
         left: 0; 
@@ -371,10 +372,41 @@ $fontFamily: Poppins, sans-serif;
 
     }
 
+    .form-input {
+        width: 650px;
+    }
+    
+    .title {
+        width: 650px;
+    }
+
+    .author {
+        width: 650px;
+    }
+    .pages {
+        width: 650px;
+    }
+    
+
     #stats-container{
         display: flex;
         margin-right: auto;
         margin-left: auto;
+        width: 700px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .checkbox-container { 
+        padding-left: 20px;
+    }
+
+    #submit-div {
+        padding-right: 20px;
+    }
+
+    .stats {
+        width: 650px;
     }
 
     #mybooks {
@@ -393,7 +425,7 @@ $fontFamily: Poppins, sans-serif;
     }
 
     .card {
-        width: 450px;
+        width: 700px;
         margin-right: auto;
         margin-left: auto;
         padding-top: 30px;
@@ -438,6 +470,7 @@ $fontFamily: Poppins, sans-serif;
 
     #checkbox-add-container {
         padding-bottom: 20px;
+
     }
 
 }
