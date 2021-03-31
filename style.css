@@ -406,6 +406,10 @@
   .quit-button {
     display: flex;
   }
+
+  #checkbox-add-container {
+    padding-bottom: 20px;
+  }
 }
 @media screen and (min-width: 1000px) and (max-width: 1259px) {
   .main {

@@ -368,7 +368,7 @@ $fontFamily: Poppins, sans-serif;
         right: 0; 
         margin: auto auto auto auto; 
         z-index: 10;
-        
+
     }
 
     #stats-container{
@@ -433,6 +433,11 @@ $fontFamily: Poppins, sans-serif;
 
     .quit-button {
         display: flex;
+    }
+
+    #checkbox-add-container {
+        padding-bottom: 20px;
+
     }
 }
 
