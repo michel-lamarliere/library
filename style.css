@@ -1,3 +1,14 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 1;
+}
+
 * {
   margin: 0;
   box-shadow: none;
@@ -29,7 +40,7 @@
   margin-top: 30px;
 }
 
-.form-container, #stats-container {
+.form-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -102,8 +113,16 @@
 }
 
 #stats-container {
-  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  height: 300px;
+  background-color: white;
+  margin-top: 20px;
+  padding-top: 20px;
   justify-content: center;
+  align-items: center;
 }
 
 #michel {
@@ -260,6 +279,22 @@
   align-self: center;
 }
 
+.quit-button {
+  display: none;
+  justify-content: center;
+  align-self: flex-start;
+  margin-left: 32px;
+  margin-bottom: 20px;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #BF1448;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
   .main {
     display: flex;
@@ -284,7 +319,34 @@
     text-align: center;
   }
 
-  .form-container, #stats-container {
+  .add-book-title {
+    display: none;
+  }
+
+  .add-books-container {
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto auto auto;
+    z-index: 10;
+    transform: scale(1.5);
+  }
+
+  .form-container {
+    display: none;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto auto auto;
+    z-index: 10;
+    transform: scale(1.5);
+  }
+
+  #stats-container {
+    display: flex;
     margin-right: auto;
     margin-left: auto;
   }
@@ -306,8 +368,8 @@
 
   .card {
     width: 450px;
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
     padding-top: 30px;
   }
 
@@ -321,6 +383,29 @@
 
   #michel {
     margin-top: 20px;
+  }
+
+  .form-pop-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 2vh;
+    right: 2vh;
+    height: 8vh;
+    width: 8vh;
+    background-color: #BF1448;
+    color: white;
+    border-radius: 50%;
+    font-size: 4vh;
+    cursor: pointer;
+  }
+  .form-pop-up:active {
+    transform: scale(1.1);
+  }
+
+  .quit-button {
+    display: flex;
   }
 }
 @media screen and (min-width: 1000px) and (max-width: 1259px) {
@@ -354,9 +439,11 @@
     text-align: center;
   }
 
-  .form-container, #stats-container {
+  .form-container {
     margin-right: auto;
     margin-left: auto;
+    display: flex;
+    position: relative;
   }
 
   .card-container {
@@ -378,8 +465,8 @@
 
   .card {
     width: 420px;
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
     padding-top: 30px;
   }
 

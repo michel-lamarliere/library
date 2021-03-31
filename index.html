@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main">
+    <div id="main">
         <div id="sidebar">
-            <div id="add-books-container">
-                <div class="titles">Add Book</div>
+            <div class="add-books-container">
+                <div class="titles add-books-title">Add Book</div>
                 <div class="form-container">
+                    <button id="quit" class="quit-button">x</button>
                     <input type="text" id="title" class="form-input" placeholder="Title">
                     <input type="text" id="author" class="form-input" placeholder="Author">
                     <input type="text" id="pages" class="form-input" placeholder="Pages">
@@ -26,7 +27,7 @@
                 </div>
             </div>
         <div id="stats-div">
-            <div class=titles>My Books</div>
+            <div class=titles>My Books 1</div>
             <div id="stats-container">
                 <div class="stats" id="stats-books">Books: 0</div>
                 <div class="stats" id="stats-books-read">Books Read: 0</div>
@@ -41,9 +42,9 @@
         <div class="card-container">
 
         </div>
+        <div class="form-pop-up">+</div>
     </div>
-
-    
+    <div class="overlay"></div>
     <script src="script.js"></script>
 </body>
 </html>

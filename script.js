@@ -1,18 +1,24 @@
 // VARIABLES
-const main = document.getElementById('main');
+const main = document.querySelector('#main');
+let overlay = document.querySelector('.overlay');
 // form
+let addBooksTitle = document.querySelector('.add-books-title');
+let addBooksContainer = document.querySelector('.add-books-container');
+let formContainer = document.querySelector('.form-container')
 let title = document.getElementById('title');
 let author = document.getElementById('author');
 let pages = document.getElementById('pages');
 let read = document.querySelector('.form-checkbox');
 let cardReads = document.getElementsByClassName('read-or-not');
 let submitBtn = document.getElementById('submit');
+let quitBtn = document.getElementById('quit');
 
 // book card
 let cardContainer = document.querySelector('.card-container')
 let cardDeleteBtns = document.getElementsByClassName('card-delete');
 let cardToggles = document.getElementsByClassName('toggle-btn');
 let cardToggleBalls = document.getElementsByClassName('toggle-ball');
+let formPopUp = document.querySelector('.form-pop-up')
 
 // book stats
 let statsBooks = document.querySelector('#stats-books');
@@ -257,6 +263,7 @@ submitBtn.addEventListener('click', () => {
     addBookToLibrary();
     resetForm();
     displayBook();
+    closePopUp()
 });
 
  // no letters in pages input
@@ -269,6 +276,31 @@ document.addEventListener('keydown', (event) => {
         submitBtn.click();
     }
 })
+
+formPopUp.addEventListener('click', () => {
+    openPopUp();
+})
+
+quitBtn.addEventListener('click', () => {
+    closePopUp();
+})
+
+function openPopUp() {
+    formContainer.style.position = 'absolute';
+    formContainer.style.display = 'flex';
+    addBooksTitle.position = 'absolute';
+    addBooksTitle.style.display = 'flex';
+    main.appendChild(formContainer);
+    main.appendChild(addBooksTitle);
+    overlay.style.display = 'block';
+}
+function closePopUp() {
+    formContainer.style.position = 'relative';
+    addBooksTitle.position = 'relative';
+    addBooksContainer.appendChild(addBooksTitle);
+    addBooksContainer.appendChild(formContainer);
+    overlay.style.display = 'none';
+}
 
 // LOCAL STORAGE
 function saveLocal() {
