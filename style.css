@@ -391,12 +391,13 @@
     position: fixed;
     bottom: 2vh;
     right: 2vh;
-    height: 8vh;
-    width: 8vh;
+    height: 6vh;
+    width: 6vh;
     background-color: #BF1448;
     color: white;
     border-radius: 50%;
-    font-size: 4vh;
+    border: solid 2px white;
+    font-size: 3vh;
     cursor: pointer;
   }
   .form-pop-up:active {
