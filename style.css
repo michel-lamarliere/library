@@ -342,7 +342,6 @@
     right: 0;
     margin: auto auto auto auto;
     z-index: 10;
-    transform: scale(1.5);
   }
 
   #stats-container {
