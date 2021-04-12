@@ -75,6 +75,9 @@
   color: #BF1448;
   margin-left: 10px;
 }
+.form-pop-up {
+  display: none;
+}
 
 .checkbox-container {
   padding-left: 30px;

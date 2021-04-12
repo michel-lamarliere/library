@@ -28,7 +28,6 @@ let statsReadPages = document.querySelector('#stats-pages-read');
 
 //arrays
 let myLibrary = [];
-let newBook;
 
 // emptyInputs() : checks if inputs are not empty
 let add;
@@ -38,26 +37,26 @@ let index;
 
 // FUNCTIONS
 
-function Book(title, author, pages, read) {
-    this.title = title.value; 
-    this.author = author.value; 
-    this.pages = pages.value; 
-    this.read = read.checked;
+class Book {
+    constructor(title, authour, pages, read) {
+        this.title = title.value; 
+        this.author = author.value; 
+        this.pages = pages.value; 
+        this.read = read.checked;
+    }
 }
 
 // add book 
 function addBookToLibrary() {
     if (add === true) {
-        console.log('adding to library')
-        newBook = new Book(title, author, pages, read);
+        let book = new Book(title, author, pages, read);
         index = myLibrary.length;
-        myLibrary.push(newBook);
+        myLibrary.push(book);
         displayBook();
     } else return false;
 }
 
 function setAttribute() {
-    console.log('setting attributes')
     let cards = document.getElementsByClassName('card');
     for (let i = 0; i < myLibrary.length; i++) {
         cards[i].dataset.number = `${i}`;
@@ -73,7 +72,6 @@ function displayBook() {
     while (cardContainer.firstChild) {
         cardContainer.firstChild.remove()
     }
-    console.log('displaying books')
     for (let i = 0; i < myLibrary.length; i++) {
         // creates Book Card
         let card = document.createElement('div');
@@ -305,24 +303,19 @@ function closePopUp() {
 // LOCAL STORAGE
 function saveLocal() {
     localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-    console.log('saving to local fn');
 }
 
 function getLocal() {
     let storage = JSON.parse(localStorage.getItem("myLibrary"));
-    console.log('get local fn');
 
     if (storage) {
         myLibrary.push(...storage);
-        console.log('mylib push fn');
     }
 }
 
 function displayLocal() {
-    console.log('display local fn()')
     getLocal();
     displayBook();
 }
 
 displayLocal();
-
