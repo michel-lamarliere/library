@@ -38,7 +38,7 @@ let index;
 // FUNCTIONS
 
 class Book {
-    constructor(title, authour, pages, read) {
+    constructor(title, author, pages, read) {
         this.title = title.value; 
         this.author = author.value; 
         this.pages = pages.value; 
@@ -48,12 +48,10 @@ class Book {
 
 // add book 
 function addBookToLibrary() {
-    if (add === true) {
-        let book = new Book(title, author, pages, read);
-        index = myLibrary.length;
-        myLibrary.push(book);
-        displayBook();
-    } else return false;
+    let book = new Book(title, author, pages, read);
+    index = myLibrary.length;
+    myLibrary.push(book);
+    displayBook();
 }
 
 function setAttribute() {
@@ -231,35 +229,44 @@ function resetForm() {
     pages.value = "";
 }
 
-function emptyInputs() {
-    add = true;
-    if (title.value == "") {
-        add = false;
+const resetPlaceholders = () => {
+    title.placeholder = "Title";
+    author.placeholder = "Author";
+    pages.placeholder = "Pages";
+}
+
+function checkInputs() {
+    if (title.validity.valueMissing) {
         title.placeholder = 'Please enter a title';
-    }
-    if (author.value == "") {
-        add = false;
+    } if (author.validity.valueMissing) {
         author.placeholder = 'Please enter an author';
-    }
-    if (pages.value == "") {
-        add = false;
+    } if (pages.validity.valueMissing) {
         pages.placeholder = 'Please enter a page number';
+    } if (pages.validity.rangeOverflow) {
+        pages.value = '';
+        pages.placeholder = 'Page number is too high';
+    } else if (pages.validity.rangeUnderflow) {
+        pages.value = '';
+        pages.placeholder = 'Page number is too low';
+    } else if (pages.validity.typeMismatch) {
+        pages.placeholder = 'Page number must be a number';
     }
 
-    if (add === true) {
-        title.placeholder = 'Title';
-        author.placeholder = 'Author';
-        pages.placeholder = 'Pages';
+    if (title.checkValidity() && author.checkValidity() && pages.checkValidity()) {
+        addBookToLibrary();
+        resetForm();
+        resetPlaceholders();
+    } else {
+        return
     }
-    return add;
 }
+
 
 // EVENT LISTENERS
 // submit button
-submitBtn.addEventListener('click', () => {
-    emptyInputs();
-    addBookToLibrary();
-    resetForm();
+submitBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    checkInputs();
     displayBook();
     closePopUp()
 });
