@@ -362,12 +362,16 @@
     width: 650px;
   }
 
+  #stats-div {
+    display: flex;
+    flex-direction: column;
+  }
+
   #stats-container {
     display: flex;
     margin: auto;
-    width: 700px;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 90%;
+    margin-top: 20px;
   }
 
   .checkbox-container {
@@ -379,7 +383,7 @@
   }
 
   .stats {
-    width: 650px;
+    width: 80%;
   }
 
   #mybooks {
@@ -412,6 +416,14 @@
 
   #michel {
     margin-top: 20px;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+
+  .form-input {
+    width: 90%;
   }
 
   .form-pop-up {

@@ -150,8 +150,7 @@ $fontFamily: Poppins, sans-serif;
     width: 150px;
     height: 30px;
     margin-top: 120px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto; 
     background-color: white;
     border-radius: 10px;
 
@@ -323,8 +322,6 @@ $fontFamily: Poppins, sans-serif;
     cursor: pointer;
 }
 
-
-
 @media screen and (max-width: 1000px) {
     .main {
         display: flex;
@@ -333,8 +330,7 @@ $fontFamily: Poppins, sans-serif;
 
     #sidebar {
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto; 
         float: none;
         padding-left: 0px;
         padding-right: 0px;
@@ -390,15 +386,16 @@ $fontFamily: Poppins, sans-serif;
     .pages {
         width: 650px;
     }
-    
+    #stats-div {
+        display: flex;
+        flex-direction: column;
+    }
 
     #stats-container{
         display: flex;
-        margin-right: auto;
-        margin-left: auto;
-        width: 700px;
-        padding-left: 10px;
-        padding-right: 10px;
+        margin: auto;
+        width: 90%;
+        margin-top: 20px;
     }
 
     .checkbox-container { 
@@ -410,7 +407,7 @@ $fontFamily: Poppins, sans-serif;
     }
 
     .stats {
-        width: 650px;
+        width: 80%;
     }
 
     #mybooks {
@@ -420,8 +417,7 @@ $fontFamily: Poppins, sans-serif;
     .card-container {
         float: none;
         flex-direction: column;
-        margin-left: auto;
-        margin-right: auto; 
+        margin: auto; 
         padding-left: 0px;
         margin-top: 10px;
         padding-top: 20px;
@@ -430,8 +426,7 @@ $fontFamily: Poppins, sans-serif;
 
     .card {
         width: 700px;
-        margin-right: auto;
-        margin-left: auto;
+        margin: auto; 
         padding-top: 30px;
     }
 
@@ -445,6 +440,14 @@ $fontFamily: Poppins, sans-serif;
 
     #michel {
         margin-top: 20px;
+    }
+
+    .form-container {
+        width: 90%;
+    }
+
+    .form-input {
+        width: 90%;
     }
 
     .form-pop-up {
@@ -492,8 +495,7 @@ $fontFamily: Poppins, sans-serif;
     #sidebar {
         width: 100%;
         min-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto; 
         float: none;
         padding-left: 0px;
         padding-right: 0px;
@@ -511,8 +513,7 @@ $fontFamily: Poppins, sans-serif;
     }
 
     .form-container {
-        margin-right: auto;
-        margin-left: auto;
+        margin: auto; 
         display: flex;
         position: relative;
     }
@@ -520,8 +521,7 @@ $fontFamily: Poppins, sans-serif;
     .card-container {
         width: 100%;
         min-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto; 
         float: none;
         padding-left: 0px;
         padding-right: 0px;
@@ -536,8 +536,7 @@ $fontFamily: Poppins, sans-serif;
 
     .card {
         width: 420px;
-        margin-right: auto;
-        margin-left: auto;
+        margin: auto; 
         padding-top: 30px;
     }
 
